@@ -98,8 +98,8 @@ function measurement_plot()
                         c = "blue", 
                         alpha = 0.5);
 
-            title("\$ P\_{B=0} = |\\langle b_0 | \\psi \\rangle|^2 \$ = $(P_x)",
-                     y =1.12)
+            title("\$ P_{B=0} = |\\langle b_0 | \\psi \\rangle|^2 \$ = $Px", y=1.12)
+
             legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)               
         end
     end
@@ -213,8 +213,8 @@ function projective_measurement_plot()
                         c = "green", 
                         alpha = 0.5);
 
-            title("\$ p\_0 = |\\langle b_0 | \\psi \\rangle|^2 \$ = $(p_0), \$ p\_1 = |\\langle b_1 | \\psi \\rangle|^2 \$ = $(p_1)",
-                     y =1.12)
+            title("\$ p_{0} = |\\langle b_0 | \\psi \\rangle|^2 \$ = \$(p_{0}), \$ p_{1} = |\\langle b_1 | \\psi \\rangle|^2 \$ = \$(p_{1})", y=1.12)
+
             legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)           
         end
     end
