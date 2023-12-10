@@ -29,30 +29,33 @@
 
 # plot of a single state vector 
 function single_state_vector_plot()
-    fig = figure(figsize=(4,4))
-    r = [0,1]
-    @manipulate for θ=-180:15:180;  
-        θ_rad = 2*pi*θ/360
-        digits = 3
-        α = round(cosd(θ),digits)
-        β = round(sind(θ),digits)
-        withfig(fig) do        
-            ax = axes(polar = "true")
-            ax[:set_ylim]([0,1.1])
-            ax[:set_yticks]([0,1,1.1])
-            ax[:set_yticklabels](["","","\$ <\\psi|\\psi> =1 \$"])
-            ax[:set_xticklabels](["\$|0\\rangle\$","\$|+\\rangle\$",
-                                              "\$|1\\rangle\$","\$-|-\\rangle\$",
-                                              "\$-|0\\rangle\$","\$-|+\\rangle\$",
-                                              "\$-|1\\rangle\$","\$|-\\rangle\$"])
-                        
-            plot(θ_rad*ones(2),r,color="#ee8d18", label = "\$ |\\psi(\\theta)\\rangle \$");
-            scatter(θ_rad,1,s=50, c="red", alpha=0.5);
-            title("\$|\\psi(\\theta)\\rangle =\$ $α \$|0\\rangle\$ + $β \$|1\\rangle\$",y=1.12)
-            legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)   
+    fig = figure(figsize=(4, 4))
+    r = [0, 1]
+    
+    @manipulate for θ = -180:15:180, RoundingFactor = 3
+        θ_rad = 2 * π * θ / 360
+        α = round(cosd(θ), digits=RoundingFactor)
+        β = round(sind(θ), digits=RoundingFactor)
+        
+        withfig(fig) do
+            ax = subplot(111, polar="true")
+            ax[:set_ylim]([0, 1.1])
+            ax[:set_yticks]([0, 1, 1.1])
+            ax[:set_yticklabels](["", "", "\$ <\\psi|\\psi> =1 \$"])
+            ax[:set_xticklabels](["\$|0\\rangle\$", "\$|+\\rangle\$",
+                                  "\$|1\\rangle\$", "\$-|-\\rangle\$",
+                                  "\$-|0\\rangle\$", "\$-|+\\rangle\$",
+                                  "\$-|1\\rangle\$", "\$|-\\rangle\$"])
+
+            plot(θ_rad * ones(2), r, color="#ee8d18", label="\$ |\\psi(\\theta)\\rangle \$")
+            scatter(θ_rad, 1, s=50, c="red", alpha=0.5)
+            title("\$|\\psi(\\theta)\\rangle =\$ $α \$|0\\rangle\$ + $β \$|1\\rangle\$", y=1.12)
+            legend(bbox_to_anchor=(1.05, 1), loc=2, borderaxespad=0.)
         end
     end
 end
+
+
 
 # plot of a measurement basis, a state vector and the resulting projections/probabilities
 function measurement_plot()
